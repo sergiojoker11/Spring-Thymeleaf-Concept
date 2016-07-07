@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Start Page</title>
+        <title>Proof of concept</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World! SI me sale me corro</h1>
+        <h1>Spring 4 and Thymeleaf 3</h1>
     </body>
     <table>
 
         <tr th:each="sb : ${allProductos}">
             <td th:text="${{sb.nombre}}"></td>
             <td>
-                <table>
+                <table style="border: 1px">
                     <tbody>
                         <tr th:each="fr : ${sb.listaFormatos}">
                             <td th:text="${fr.unidad}"></td>
