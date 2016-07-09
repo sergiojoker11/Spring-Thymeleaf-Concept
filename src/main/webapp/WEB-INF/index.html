@@ -3,23 +3,26 @@
     <head>
         <title>Proof of concept ASM</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen"> </link>
     </head>
-    <body>
-        <h1>Spring 4 and Thymeleaf 3</h1>
-    </body>
-    <table>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <h1>Spring 4 and Thymeleaf 3</h1>
+</body>
+<table>
 
-        <tr th:each="sb : ${allProductos}">
-            <td th:text="${{sb.nombre}}"></td>
-            <td>
-                <table style="border: 1px">
-                    <tbody>
-                        <tr th:each="fr : ${sb.listaFormatos}">
-                            <td th:text="${fr.unidad}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <tr th:each="sb : ${allProductos}">
+        <td th:text="${{sb.nombre}}"></td>
+        <td>
+            <table class="table-bordered">
+                <tbody>
+                    <tr th:each="fr : ${sb.listaFormatos}">
+                        <td th:text="${fr.unidad}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
 </html>
