@@ -48,7 +48,7 @@ public class SpringServletInitializer extends AbstractDispatcherServletInitializ
     }
 
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+        return new String[] { "/", "/menu" };
     }
 
     @Override
