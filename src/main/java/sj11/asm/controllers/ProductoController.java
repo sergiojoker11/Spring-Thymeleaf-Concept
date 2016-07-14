@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asm.controllers;
+package sj11.asm.controllers;
 
-import asm.entities.Formato;
-import asm.entities.Producto;
+import sj11.asm.entities.Formato;
+import sj11.asm.entities.Producto;
 import java.util.Calendar;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import asm.repositories.ProductoRepositorio;
-import asm.repositories.ProductoRepositorioCRUD;
+import sj11.asm.repositories.ProductoRepositorio;
+import sj11.asm.repositories.ProductoRepositorioCRUD;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +27,6 @@ public class ProductoController {
     @Autowired
     ProductoRepositorio productoRepositorio;
     
-    @Autowired
     ProductoRepositorioCRUD productoRepositorio2;
     
     @ModelAttribute("allProductos")

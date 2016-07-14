@@ -17,7 +17,7 @@
  * 
  * =============================================================================
  */
-package asm.application;
+package sj11.asm.application;
 
 import javax.servlet.Filter;
 

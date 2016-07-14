@@ -17,9 +17,11 @@
  *
  * =============================================================================
  */
-package asm.application;
+package sj11.asm.application;
 
 import org.springframework.beans.BeansException;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
@@ -36,7 +38,8 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("asm")
+@ComponentScan("sj11.asm")
+@EnableAutoConfiguration(exclude={org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.class, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration.class, DataSourceAutoConfiguration.class})
 public class SpringWebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     public static final String CHARACTER_ENCODING = "UTF-8";

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asm.repositories;
+package sj11.asm.repositories;
 
-import asm.entities.Formato;
-import asm.entities.Producto;
+import sj11.asm.entities.Formato;
+import sj11.asm.entities.Producto;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
