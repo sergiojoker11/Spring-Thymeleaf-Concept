@@ -9,6 +9,9 @@
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <h1>Spring 4 and Thymeleaf 3</h1>
+        <form action="#" th:action="@{/insert}"  method="post">
+            <button type="submit">Mandar objetos a la BBDD</button> 
+        </form>
     </body>
     <table>
 
@@ -24,6 +27,6 @@
                 </table>
             </td>
         </tr>
-        <a href="#" th:href="@{/menu}">Link</a><
+        <a href="#" th:href="@{/menu}">Link</a>
     </table>
 </html>

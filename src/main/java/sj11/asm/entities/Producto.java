@@ -17,14 +17,14 @@ import javax.validation.constraints.NotNull;
  *
  * @author SeRGiO11
  */
-
 @Entity
 @Table(name = "productos")
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    
+
     @NotNull
     private String nombre;
     private List<Formato> listaFormatos;

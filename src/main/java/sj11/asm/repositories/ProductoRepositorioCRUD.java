@@ -5,15 +5,19 @@
  */
 package sj11.asm.repositories;
 
-import sj11.asm.entities.Producto;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import sj11.asm.entities.Producto;
 
 /**
  *
  * @author SeRGiO11
  */
-@Repository
-public interface ProductoRepositorioCRUD  extends CrudRepository<Producto, Long>{
+public interface ProductoRepositorioCRUD extends CrudRepository<Producto, Long> {
+
     public Producto findByName(String name);
+
+    public Producto save(Producto producto);
+
+    List<Producto> findAll();
 }

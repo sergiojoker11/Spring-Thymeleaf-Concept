@@ -7,7 +7,6 @@ package sj11.asm.controllers;
 
 import sj11.asm.entities.Formato;
 import sj11.asm.entities.Producto;
-import java.util.Calendar;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import sj11.asm.repositories.ProductoRepositorio;
 import sj11.asm.repositories.ProductoRepositorioCRUD;
 import java.util.ArrayList;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -24,26 +22,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class ProductoController {
+
     @Autowired
     ProductoRepositorio productoRepositorio;
-    
+
     ProductoRepositorioCRUD productoRepositorio2;
-    
+
     @ModelAttribute("allProductos")
-    public List<Producto> getProductos(){
+    public List<Producto> getProductos() {
         return productoRepositorio.dameProductos();
     }
-    
-    @RequestMapping({"/","/index"})
+
+    @RequestMapping({"/", "/index"})
     public String showSeedstarters() {
         return "index";
     }
-    
-    @RequestMapping("/insert")
-  @ResponseBody
-  public String create() {
 
-      Formato y1 = new Formato("1KG");
+    @RequestMapping("/insert")
+    public String create() {
+
+        Formato y1 = new Formato("1KG");
         Formato y2 = new Formato("2KG");
         Formato y3 = new Formato("3KG");
         Formato y4 = new Formato("4KG");
@@ -66,8 +64,8 @@ public class ProductoController {
         List<Producto> listaProductos = new ArrayList<>();
         listaProductos.add(x1);
         listaProductos.add(x2);
-        
+
         productoRepositorio2.save(x1);
-        return "DE puta madre";
-  }
+        return "menu";
+    }
 }

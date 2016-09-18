@@ -39,29 +39,23 @@ import org.thymeleaf.templatemode.TemplateMode;
 @Configuration
 @EnableWebMvc
 @ComponentScan("sj11.asm")
-@EnableAutoConfiguration(exclude={org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.class, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration.class, DataSourceAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.class, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration.class, DataSourceAutoConfiguration.class})
 public class SpringWebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     public static final String CHARACTER_ENCODING = "UTF-8";
 
-
     private ApplicationContext applicationContext;
-
-
 
     public SpringWebConfig() {
         super();
     }
 
-
     public void setApplicationContext(final ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
 
-
-
     /**
-     *  Message externalization/internationalization
+     * Message externalization/internationalization
      */
     @Bean
     public ResourceBundleMessageSource messageSource() {
@@ -71,12 +65,11 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter implements Applicat
     }
 
     /* **************************************************************** */
-    /*  THYMELEAF-SPECIFIC ARTIFACTS                                    */
-    /*  TemplateResolver <- TemplateEngine <- ViewResolver              */
-    /* **************************************************************** */
-
+ /*  THYMELEAF-SPECIFIC ARTIFACTS                                    */
+ /*  TemplateResolver <- TemplateEngine <- ViewResolver              */
+ /* **************************************************************** */
     @Bean
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
         templateResolver.setPrefix("/WEB-INF/");
@@ -89,26 +82,25 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter implements Applicat
     }
 
     @Bean
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         return templateEngine;
     }
 
     @Bean
-    public ThymeleafViewResolver viewResolver(){
+    public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine());
         return viewResolver;
     }
 
     /* ******************************************************************* */
-    /*  Defines callback methods to customize the Java-based configuration */
-    /*  for Spring MVC enabled via {@code @EnableWebMvc}                   */
-    /* ******************************************************************* */
-
+ /*  Defines callback methods to customize the Java-based configuration */
+ /*  for Spring MVC enabled via {@code @EnableWebMvc}                   */
+ /* ******************************************************************* */
     /**
-     *  Dispatcher configuration for serving static resources
+     * Dispatcher configuration for serving static resources
      */
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
@@ -116,6 +108,5 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter implements Applicat
         registry.addResourceHandler("/images/**").addResourceLocations("/images/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
-
 
 }
